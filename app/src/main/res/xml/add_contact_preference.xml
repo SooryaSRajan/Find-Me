@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:tag="add_contact_fragment">
+
+    <PreferenceCategory app:title="Configure Key Permission">
+
+        <SwitchPreferenceCompat
+            app:key="custom_contact"
+            app:summaryOff="Key from any numbers can activate Find My Phone protocol"
+            app:summaryOn="Key from only specific numbers can activate Find My Phone protocol"
+            app:title="Custom Keys" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Custom Contacts: "/>
+
+</PreferenceScreen>

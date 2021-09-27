@@ -1,0 +1,62 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:tag="settings_fragment">
+
+    <PreferenceCategory app:title="Configure Message Key">
+
+        <EditTextPreference
+            app:defaultValue="ENABLE"
+            app:key="keyword"
+            app:title="Message Key"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="expiration"
+            app:summaryOff="Same keyword can be used to find device forever"
+            app:summaryOn="Keyword is only valid once and has to be changed again next time"
+            app:title="Expiring Keyword" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Configure Alert Mode">
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="torch"
+            app:summaryOff="Torch light has been disabled"
+            app:summaryOn="Torch light has been enabled"
+            app:title="Torch Light" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="audio_enable_disable"
+            app:summaryOff="Audio has been disabled"
+            app:summaryOn="Audio has been enabled"
+            app:title="Audio" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:dependency="audio_enable_disable"
+        app:key="audio_profile"
+        app:title="Audio">
+
+        <SeekBarPreference
+            app:key="volume"
+            app:title="Ring Volume" />
+
+        <SwitchPreferenceCompat
+            android:summaryOff="Custom ringtone has been disabled"
+            android:summaryOn="Custom ringtone has been enabled"
+            android:title="Set Custom Ringtone"
+            app:key="custom_ringtone" />
+
+        <Preference
+            android:key="ringtone"
+            android:summary="Set custom ringtones for your find my phone app"
+            android:title="Change Ring Tone"
+            app:dependency="custom_ringtone" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
